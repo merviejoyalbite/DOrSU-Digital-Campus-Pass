@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { StudentProfile } from '../types/student';
+import { StatusBadge } from './StatusBadge';
 
 interface StudentCardProps {
   student: StudentProfile;
+  isActive: boolean;
 }
 
 export const StudentCard: React.FC<StudentCardProps> = ({
   student,
+  isActive,
 }) => {
   return (
     <View style={styles.card}>
@@ -24,6 +27,8 @@ export const StudentCard: React.FC<StudentCardProps> = ({
           <Text style={styles.yearLevel}>{student.yearLevel}</Text>
         </View>
       </View>
+
+      <StatusBadge isActive={isActive} />
 
       <Text style={styles.campus}>
         Campus: {student.campus}
